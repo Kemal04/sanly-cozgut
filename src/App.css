@@ -1,0 +1,17 @@
+.fs-18{
+    font-size: 18px!important;
+}
+
+.bg-home{
+    background: url(./assets/bg/home.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 150vh;
+    width: 100%;
+    z-index: -1;
+}
+
+.bg-transparent{
+    background: transparent!important;
+}
