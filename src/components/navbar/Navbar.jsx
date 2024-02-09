@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom"
 import img1 from '../../assets/cards/1.jpg'
+import img2 from '../../assets/cards/2.png'
 
 const Navbar = () => {
     return (
@@ -45,7 +46,10 @@ const Navbar = () => {
                             <NavLink to="/" className="btn btn-primary py-3 px-5 mt-4 rounded-5 fs-18 fw-semibold">Agza Bol</NavLink>
                         </div>
                         <div className="col-xl-6">
-                            <img src={img1} alt="" className="img-fluid rounded-5" />
+                            <div className="position-relative">
+                                <img src={img1} alt="" className="img-fluid rounded-5" style={{ minWidth: "900px" }} />
+                                <img src={img2} alt="" className="img-fluid rounded-4 position-absolute" style={{ bottom: "-18%", left: "-20%" }} />
+                            </div>
                         </div>
                     </div>
                 </div>
