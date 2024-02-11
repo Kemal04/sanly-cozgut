@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <>
             <div className="bg-home">
-                <nav className="navbar navbar-expand-lg bg-transparent navbar-dark mb-5">
+                <nav className="navbar navbar-expand-lg bg-transparent navbar-light mb-5">
                     <div className="container pt-4">
                         <NavLink to='/' className="navbar-brand">Logo</NavLink>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@ const Navbar = () => {
                     </div>
                 </nav>
 
-                <div className="container mt-5 pt-5 text-white">
+                <div className="container mt-5 pt-5">
                     <div className="row">
                         <div className="col-xl-6">
                             <div className="display-2 mb-5">
@@ -47,8 +47,8 @@ const Navbar = () => {
                         </div>
                         <div className="col-xl-6">
                             <div className="position-relative">
-                                <img src={img1} alt="" className="img-fluid rounded-5" style={{ minWidth: "900px" }} />
-                                <img src={img2} alt="" className="img-fluid rounded-4 position-absolute" style={{ bottom: "-18%", left: "-20%" }} />
+                                <img src={img1} alt="" className="img-fluid rounded-5"/>
+                                <img src={img2} alt="" className="img-fluid rounded-4 position-absolute w-25" style={{ bottom: "-18%", left: "-10%" }} />
                             </div>
                         </div>
                     </div>

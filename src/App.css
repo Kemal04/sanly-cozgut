@@ -3,13 +3,13 @@
 }
 
 .bg-home{
-    background: url(./assets/bg/home.png);
+    background: url(./assets/bg/home.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 150vh;
-    width: 100%;
-    z-index: -1;
+    height: 100vh;
+    width: 100%!important;
+    z-index: -1!important;
 }
 
 .bg-transparent{
