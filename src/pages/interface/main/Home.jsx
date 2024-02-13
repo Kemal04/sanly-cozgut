@@ -11,6 +11,10 @@ import img10 from "../../../assets/cards/10.jpg";
 import img11 from "../../../assets/cards/11.jpg";
 import img12 from "../../../assets/cards/12.jpg";
 import img13 from "../../../assets/cards/13.jpg";
+import img14 from "../../../assets/cards/14.jpg";
+import img15 from "../../../assets/cards/15.jpg";
+import img16 from "../../../assets/cards/16.jpg";
+import img17 from "../../../assets/cards/17.jpg";
 
 import svg1 from "../../../assets/icons/mac.svg";
 import svg2 from "../../../assets/icons/statiks.svg";
@@ -140,6 +144,104 @@ const Home = () => {
                     </div>
                     <div className="col-xl-12 d-flex justify-content-center">
                         <Link to='/' className="btn btn-primary btn-lg mt-3 rounded-5 py-3 px-5">Get Start</Link>
+                    </div>
+                </div>
+            </div>
+
+            <div className="bg-about">
+                <div className="container">
+                    <div className="d-flex justify-content-center">
+
+                        <div className="w-75">
+                            <div className="row align-items-center">
+                                <div className="col-xl-8 mb-5">
+                                    <div className="display-5">
+                                        Explore Our Newest <b>Articles</b> & <b>Resources</b>
+                                    </div>
+                                </div>
+                                <div className="col-xl-4 mb-5 text-end">
+                                    <Link to="" className="btn btn-dark px-5 py-3 rounded-5">Browse Articles</Link>
+                                </div>
+                                <div className="col-xl-5">
+                                    <div className="bg-white rounded-5 p-4">
+                                        <img src={img14} alt="" className="img-fluid rounded-5" />
+                                        <div className="ms-3">
+                                            <div className="my-3">
+                                                <span className="btn btn-outline-primary btn-sm rounded-5">Design</span>
+                                                <span className="btn btn-outline-primary btn-sm rounded-5 mx-3">Nov 18, 2024</span>
+                                            </div>
+                                            <div className="h4 mb-3">Demystified: Streamlining Insights for Success</div>
+                                            <p>Analytical processes, empowering readers to harness insights effortlessly.</p>
+                                            <Link to='' className="text-decoration-none">View more</Link>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-xl-7">
+                                    <div className="d-flex mb-3 align-items-center">
+                                        <div className="bg-light rounded-5 p-3">
+                                            <img src={img15} alt="" className="img-fluid rounded-5" style={{ width: "140px" }} />
+                                        </div>
+                                        <div className="ms-3">
+                                            <span>Design</span>
+                                            <span>Nov 18, 2024</span>
+                                            <div className="h4 mt-4">Demystified: Streamlining Insights for Success</div>
+                                        </div>
+                                    </div>
+                                    <div className="d-flex mb-3 align-items-center">
+                                        <div className="bg-light rounded-5 p-3">
+                                            <img src={img16} alt="" className="img-fluid rounded-5" style={{ width: "140px" }} />
+                                        </div>
+                                        <div className="ms-3">
+                                            <span>Design</span>
+                                            <span>Nov 18, 2024</span>
+                                            <div className="h4 mt-4">Demystified: Streamlining Insights for Success</div>
+                                        </div>
+                                    </div>
+                                    <div className="d-flex align-items-center">
+                                        <div className="bg-light rounded-5 p-3">
+                                            <img src={img17} alt="" className="img-fluid rounded-5" style={{ width: "140px" }} />
+                                        </div>
+                                        <div className="ms-3">
+                                            <span>Design</span>
+                                            <span>Nov 18, 2024</span>
+                                            <div className="h4 mt-4">Demystified: Streamlining Insights for Success</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container mt-5 pt-5">
+                <div className="d-flex justify-content-center">
+                    <div className="text-center display-5 w-50">Get Insight into <b>Frequently Asked Questions</b></div>
+                </div>
+                <div className="bg-light rounded-5 p-5">
+                    <div className="row align-items-center">
+                        <div className="col-xl-6">
+                            <form className="row justify-content-center">
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
+                                    <input name="name" type="text" className="form-control rounded-0" placeholder="Adynyz" autoComplete="off" />
+                                </div>
+                                <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
+                                    <input name="email" type="email" className="form-control rounded-0" placeholder="E-mail adresiniz" autoComplete="off" />
+                                </div>
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-12 mb-4">
+                                    <input name="subject" type="text" className="form-control rounded-0" placeholder="Temasy" autoComplete="off" />
+                                </div>
+                                <div className="col-xl-12 col-lg-12 col-md-12 col-12 mb-4">
+                                    <textarea name="comment" className="form-control rounded-0" rows="6" placeholder="Mazmuny"></textarea>
+                                </div>
+                                <div className="col-xl-5 mb-4 text-center">
+                                    <button className="btn btn-primary px-5 rounded-5">Ugrat</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="col-xl-6">
+
+                        </div>
                     </div>
                 </div>
             </div>
