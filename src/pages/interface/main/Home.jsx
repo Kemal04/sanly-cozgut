@@ -19,6 +19,8 @@ import img17 from "../../../assets/cards/17.jpg";
 import svg1 from "../../../assets/icons/mac.svg";
 import svg2 from "../../../assets/icons/statiks.svg";
 import checkIcon from "../../../assets/icons/check.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faEnvelope, faMapMarkedAlt, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
     return (
@@ -218,29 +220,48 @@ const Home = () => {
                 <div className="d-flex justify-content-center">
                     <div className="text-center display-5 w-50">Get Insight into <b>Frequently Asked Questions</b></div>
                 </div>
-                <div className="bg-light rounded-5 p-5">
-                    <div className="row align-items-center">
+                <div className="bg-light rounded-5 p-5 mt-5">
+                    <div className="row justify-content-between align-items-center">
                         <div className="col-xl-6">
                             <form className="row justify-content-center">
                                 <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                    <input name="name" type="text" className="form-control rounded-0" placeholder="Adynyz" autoComplete="off" />
+                                    <input name="name" type="text" className="form-control rounded-4 border-0" placeholder="Adynyz" autoComplete="off" />
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                    <input name="email" type="email" className="form-control rounded-0" placeholder="E-mail adresiniz" autoComplete="off" />
+                                    <input name="email" type="email" className="form-control rounded-4 border-0" placeholder="E-mail adresiniz" autoComplete="off" />
                                 </div>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-12 mb-4">
-                                    <input name="subject" type="text" className="form-control rounded-0" placeholder="Temasy" autoComplete="off" />
+                                    <input name="subject" type="text" className="form-control rounded-4 border-0" placeholder="Temasy" autoComplete="off" />
                                 </div>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-12 mb-4">
-                                    <textarea name="comment" className="form-control rounded-0" rows="6" placeholder="Mazmuny"></textarea>
+                                    <textarea name="comment" className="form-control rounded-4 border-0" rows="6" placeholder="Mazmuny"></textarea>
                                 </div>
                                 <div className="col-xl-5 mb-4 text-center">
-                                    <button className="btn btn-primary px-5 rounded-5">Ugrat</button>
+                                    <button className="btn btn-primary px-5 rounded-5" type="submit">Ugrat</button>
                                 </div>
                             </form>
                         </div>
-                        <div className="col-xl-6">
-
+                        <div className="col-xl-5">
+                            <div className="d-flex align-items-center fs-18 mb-4">
+                                <FontAwesomeIcon icon={faPhoneAlt} className="me-2 bg-primary text-white p-3 rounded-circle"/>
+                                <div className="fw-semibold">+993 65 12-34-56</div>
+                            </div>
+                            <div className="d-flex align-items-center fs-18 mb-4">
+                                <FontAwesomeIcon icon={faPhoneAlt} className="me-2 bg-primary text-white p-3 rounded-circle"/>
+                                <div className="fw-semibold">+993 65 12-34-56</div>
+                            </div>
+                            <div className="d-flex align-items-center fs-18 mb-4">
+                                <FontAwesomeIcon icon={faMapMarkedAlt} className="me-2 bg-primary text-white p-3 rounded-circle"/>
+                                <div className="fw-semibold">Aşgabat ş., Oguzhan köç., 13 "A"</div>
+                            </div>
+                            <div className="d-flex align-items-center fs-18 mb-4">
+                                <FontAwesomeIcon icon={faClock} className="me-2 bg-primary text-white p-3 rounded-circle"/>
+                                <div className="fw-semibold">09:00-dan, 22:00 çenli</div>
+                            </div>
+                            <div className="d-flex align-items-center fs-18 mb-4">
+                                <FontAwesomeIcon icon={faEnvelope} className="me-2 bg-primary text-white p-3 rounded-circle"/>
+                                <div className="fw-semibold">it@sanly.tm</div>
+                            </div>
                         </div>
                     </div>
                 </div>

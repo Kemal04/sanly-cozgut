@@ -2,8 +2,10 @@ import { BrowserRouter as Router, Outlet, Route, Routes } from 'react-router-dom
 import { Toaster } from 'react-hot-toast'
 import './App.css'
 
+//COMPONENTS
 import { Footer, Navbar, ScrollToTop } from './components';
-import { Home } from './pages/interface';
+//PAGES
+import { Home, Login, Register } from './pages/interface';
 
 function App() {
 
@@ -18,6 +20,10 @@ function App() {
                         <Route path="/" element={<Home />} />
 
                     </Route>
+
+                    <Route path="/giris-etmek" element={<Login />} />
+                    <Route path="/agza-bolmak" element={<Register />} />
+
                 </Routes>
             </Router>
         </>
@@ -27,7 +33,7 @@ function App() {
 const HomeLayout = () => {
     return (
         <>
-        
+
             <Navbar />
 
             <Outlet />
