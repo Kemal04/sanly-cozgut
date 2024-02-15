@@ -15,7 +15,7 @@ const Navbar = () => {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav ms-auto">
                                 <li className="nav-item">
-                                    <NavLink to='/' className="nav-link fw-semibold px-3" aria-current="page">Home</NavLink>
+                                    <NavLink to='/' className="nav-link fw-semibold px-3">Baş sahypa</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink to='/' className="nav-link fw-semibold px-3">Täzelikler</NavLink>
@@ -38,16 +38,16 @@ const Navbar = () => {
                     <div className="row">
                         <div className="col-xl-6">
                             <div className="display-2 mb-5">
-                                Access cutting edge <b>analytics</b> right at your disposal!
+                                «Sanly çözgüt – 2024» <b>innowasion taslamalar</b> bäsleşigi
                             </div>
                             <div className="h3 fw-normal" style={{ lineHeight: "45px" }}>
-                                Power of advanced analytics at your fingertips for unparalleled insights. Experience a new era of data-driven decision-making.
+                                Türkmenistanda sanly ykdysadyýeti ösdürmek boýunça ygtyýarly edara.
                             </div>
-                            <NavLink to="/" className="btn btn-primary py-3 px-5 mt-4 rounded-5 fs-18 fw-semibold">Agza Bol</NavLink>
+                            <NavLink to="https://www.mincom.gov.tm/tk/" target="_blank" className="btn btn-primary py-3 px-5 mt-4 rounded-5 fs-18 fw-semibold">Giňişleýin gör</NavLink>
                         </div>
                         <div className="col-xl-6">
                             <div className="position-relative">
-                                <img src={img1} alt="" className="img-fluid rounded-5"/>
+                                <img src={img1} alt="" className="img-fluid rounded-5" />
                                 <img src={img2} alt="" className="img-fluid rounded-4 position-absolute w-25" style={{ bottom: "-18%", left: "-10%" }} />
                             </div>
                         </div>
