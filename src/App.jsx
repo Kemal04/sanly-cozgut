@@ -6,6 +6,8 @@ import './App.css'
 import { Footer, Navbar, ProfileNavbar, ProfileSidebar, ScrollToTop } from './components';
 //PAGES
 import { Home, Login, Profile, Register } from './pages/interface';
+//ADMIN
+import { Admin, AdminLogin } from './pages/admin';
 
 function App() {
 
@@ -19,12 +21,18 @@ function App() {
                         <Route path="/" element={<Home />} />
                     </Route>
 
+                    <Route path="/giris-etmek" element={<Login />} />
+                    <Route path="/agza-bolmak" element={<Register />} />
+
                     <Route path="/profile" element={<ProfileLayout />}>
                         <Route path="" element={<Profile />} />
                     </Route>
 
-                    <Route path="/giris-etmek" element={<Login />} />
-                    <Route path="/agza-bolmak" element={<Register />} />
+                    <Route path="/admin" element={<AdminLayout />}>
+                        <Route path="" element={<Admin />} />
+                    </Route>
+
+                    <Route path="/admin/login" element={<AdminLogin />} />
 
                 </Routes>
             </Router>
@@ -58,6 +66,15 @@ const ProfileLayout = () => {
                     </div>
                 </div>
             </div>
+        </>
+    );
+};
+
+
+const AdminLayout = () => {
+    return (
+        <>
+            <Outlet />
         </>
     );
 };

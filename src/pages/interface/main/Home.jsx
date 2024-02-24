@@ -4,7 +4,6 @@ import img3 from "../../../assets/cards/3.png";
 import img4 from "../../../assets/cards/4.png";
 import img5 from "../../../assets/cards/5.png";
 import img6 from "../../../assets/cards/6.png";
-import img7 from "../../../assets/cards/7.png";
 import img8 from "../../../assets/cards/8.png";
 import img9 from "../../../assets/cards/9.jpg";
 import img10 from "../../../assets/cards/10.jpg";
@@ -25,7 +24,7 @@ import { faClock, faEnvelope, faMapMarkedAlt, faPhoneAlt } from "@fortawesome/fr
 const Home = () => {
     return (
         <>
-            <div className="container my-5 py-5">
+            <div className="container my-5 py-5" id="news">
                 <div className="row">
                     <div className="col-xl-7">
                         <div className="position-relative mb-5">
@@ -114,7 +113,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="text-center mt-5 py-5 d-flex justify-content-center flex-column align-items-center">
+            <div className="text-center mt-5 py-5 d-flex justify-content-center flex-column align-items-center" id="kriteriyalar">
                 <div className="display-4"><b className="text-primary fw-bold">Kriteriýalaryň</b> sanawy</div>
                 <p className="mt-4 fs-18 text-secondary" style={{ width: "34%" }}>
                     Bäsleşige gatnaşyjylaryň buýurmalarynyň kriteriýa aňlatmalary we kriteriýalar boýunça aňladyş göterimleri ýa-da bahalary
@@ -178,7 +177,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="bg-about">
+            <div className="bg-about" id="about">
                 <div className="container">
                     <div className="d-flex justify-content-center">
 
@@ -244,7 +243,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="container mt-5 pt-5">
+            <div className="container mt-5 pt-5" id="contact">
                 <div className="d-flex justify-content-center">
                     <div className="text-center display-5 w-50">Get Insight into <b>Frequently Asked Questions</b></div>
                 </div>

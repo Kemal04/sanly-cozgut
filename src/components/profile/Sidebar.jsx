@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import userImg from "../../assets/icons/user.jpg";
-import { faAngleRight, faHeart, faHomeAlt, faUserAlt, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faBook, faHeart, faHomeAlt, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
@@ -28,21 +28,21 @@ const Sidebar = () => {
                     <NavLink to='/' className='text-dark text-decoration-none d-block d-flex align-items-center position-relative w-100 px-3 justify-content-between' style={{ height: "65px" }}>
                         <div className="d-flex align-items-center ms-3">
                             <FontAwesomeIcon icon={faUserAlt} className="me-2" />
-                            <div>Followers</div>
+                            <div>Hasaba durmak</div>
                         </div>
                         <FontAwesomeIcon icon={faAngleRight} />
                     </NavLink>
                     <NavLink to='/' className='text-dark text-decoration-none d-block d-flex align-items-center position-relative w-100 px-3 justify-content-between' style={{ height: "65px" }}>
                         <div className="d-flex align-items-center ms-3">
-                            <FontAwesomeIcon icon={faUsers} className="me-2" />
-                            <div>Following</div>
+                            <FontAwesomeIcon icon={faBook} className="me-2" />
+                            <div>Arhiwim</div>
                         </div>
                         <FontAwesomeIcon icon={faAngleRight} />
                     </NavLink>
                     <NavLink to='/' className='text-dark text-decoration-none d-block d-flex align-items-center position-relative w-100 px-3 justify-content-between' style={{ height: "65px" }}>
                         <div className="d-flex align-items-center ms-3">
                             <FontAwesomeIcon icon={faHeart} className="me-2" />
-                            <div>Likes</div>
+                            <div>Balarym</div>
                         </div>
                         <FontAwesomeIcon icon={faAngleRight} />
                     </NavLink>
