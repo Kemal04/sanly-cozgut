@@ -26,7 +26,7 @@
 
 .profile-active {
     background-color: white !important;
-    color: #0D6EFD!important;
+    color: #0D6EFD !important;
 }
 
 .profile-active-bar {
@@ -37,5 +37,10 @@
     bottom: 0;
     width: 5px;
     height: 100%;
-    background-color: #0D6EFD!important;
+    background-color: #0D6EFD !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: white !important;
 }

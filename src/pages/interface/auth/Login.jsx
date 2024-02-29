@@ -40,11 +40,11 @@ const Login = () => {
                                 <div className="display-4 mb-5 text-center">Giriş etmek</div>
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                <label className="form-label fw-semibold ms-2" htmlFor="phone">Telefon belgisi *</label>
+                                <label className="form-label fw-semibold ms-2" htmlFor="phone">Telefon belgisi</label>
                                 <input id="phone" name="phone" type="number" className="form-control rounded-4" placeholder="+993 65 12-34-56" autoComplete="off" />
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                <label className="form-label fw-semibold ms-2" htmlFor="password">Açar sözi *</label>
+                                <label className="form-label fw-semibold ms-2" htmlFor="password">Açar sözi</label>
                                 <input id="password" name="password" type="password" className="form-control rounded-4" placeholder="************" autoComplete="off" />
                             </div>
                             <div className="col-xl-12 mb-4">

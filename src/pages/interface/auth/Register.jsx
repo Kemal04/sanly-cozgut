@@ -39,16 +39,20 @@ const Register = () => {
                             <div className="col-xl-12">
                                 <div className="display-4 mb-5 text-center">Agza bolmak</div>
                             </div>
-                            <div className="col-xl-12 col-lg-12 col-md-12 col-12 mb-4">
-                                <label className="form-label fw-semibold ms-2" htmlFor="phone">Telefon belgisi *</label>
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
+                                <label className="form-label fw-semibold ms-2" htmlFor="name">Ady</label>
+                                <input id="name" name="name" type="text" className="form-control rounded-4" placeholder="Kemal" autoComplete="off" />
+                            </div>
+                            <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
+                                <label className="form-label fw-semibold ms-2" htmlFor="phone">Telefon belgisi</label>
                                 <input id="phone" name="phone" type="number" className="form-control rounded-4" placeholder="+993 65 12-34-56" autoComplete="off" />
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                <label className="form-label fw-semibold ms-2" htmlFor="password">Açar sözi *</label>
+                                <label className="form-label fw-semibold ms-2" htmlFor="password">Açar sözi</label>
                                 <input id="password" name="password" type="password" className="form-control rounded-4" placeholder="************" autoComplete="off" />
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                <label className="form-label fw-semibold ms-2" htmlFor="password1">Açar sözini gaýtala *</label>
+                                <label className="form-label fw-semibold ms-2" htmlFor="password1">Açar sözini gaýtala</label>
                                 <input id="password1" name="password1" type="password" className="form-control rounded-4" placeholder="************" autoComplete="off" />
                             </div>
                             <div className="col-xl-12 mb-4">
