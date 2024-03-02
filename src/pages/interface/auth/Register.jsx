@@ -1,7 +1,71 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import footerImg from "../../../assets/bg/auth.jpg";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../context/AuthContext";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const Register = () => {
+
+    const { setAuthState } = useContext(AuthContext);
+
+    const navigate = useNavigate()
+
+    const [username, setUsername] = useState("")
+    const [phone_num, setPhone_num] = useState("")
+    const [password, setPassword] = useState("")
+    const [cPassword, setCPassword] = useState("")
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const data = { username: username, phone_num: phone_num, password: password }
+
+        if (!username) {
+            toast.error("Adyňyzy ýazyň!")
+        }
+        else if (!phone_num) {
+            toast.error("Telefon belginizi ýazyň!")
+        }
+        else if (phone_num.length < 8) {
+            toast.error("Telefon belgiňizi dogry ýazyň")
+        }
+        else if (phone_num.length > 8) {
+            toast.error("Telefon belgiňizi dogry ýazyň")
+        }
+        else if (!password) {
+            toast.error("Açar sözüňizi ýazyň!")
+        }
+        else if (!cPassword) {
+            toast.error("Açar sözüňizi gaýtadan ýazyň!")
+        }
+        else if (cPassword !== password) {
+            toast.error("Açar sözüňiz gabat gelenok !")
+        }
+        else if (password.length < 8) {
+            toast.error("Açar sözüňiz 8-den uly bolmaly")
+        }
+        else {
+            await axios.post(`${import.meta.env.VITE_API_FETCH}/auth/register`, data).then((res) => {
+                if (res.data.error) {
+                    toast.error(res.data.error)
+                } else {
+                    localStorage.setItem("accessToken", res.data.token)
+                    setAuthState({
+                        username: res.data.username,
+                        phone_num: res.data.phone_num,
+                        id: res.data.id,
+                        status: true,
+                        role: res.data.role,
+                    });
+                    toast.success(res.data.success)
+                    navigate("/")
+                    window.location.reload()
+                }
+            })
+        }
+    }
+
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-transparent navbar-light">
@@ -35,25 +99,28 @@ const Register = () => {
             <div className="container">
                 <div className="row justify-content-center align-items-center" style={{ height: "70vh" }}>
                     <div className="col-xl-7">
-                        <form className="row rounded-5 py-4 px-5 shadow-sm">
+                        <form className="row rounded-5 py-4 px-5 shadow-sm" onSubmit={handleSubmit}>
                             <div className="col-xl-12">
                                 <div className="display-4 mb-5 text-center">Agza bolmak</div>
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                <label className="form-label fw-semibold ms-2" htmlFor="name">Ady</label>
-                                <input id="name" name="name" type="text" className="form-control rounded-4" placeholder="Kemal" autoComplete="off" />
+                                <label className="form-label fw-semibold ms-2" htmlFor="username">Ady</label>
+                                <input value={username} onChange={(e) => setUsername(e.target.value)} id="username" name="username" type="text" className="form-control rounded-4" placeholder="Kemal" autoComplete="off" />
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                <label className="form-label fw-semibold ms-2" htmlFor="phone">Telefon belgisi</label>
-                                <input id="phone" name="phone" type="number" className="form-control rounded-4" placeholder="+993 65 12-34-56" autoComplete="off" />
+                                <label className="form-label fw-semibold ms-2" htmlFor="phone_num">Telefon belgisi</label>
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text rounded-start-5" id="basic-addon1">+993</span>
+                                    <input value={phone_num} onChange={(e) => setPhone_num(e.target.value)} id="phone_num" name="phone_num" min="60000000" max="71999999" type="number" className="form-control rounded-end-5" placeholder="65 12-34-56" autoComplete="off" aria-label="Username" aria-describedby="basic-addon1" />
+                                </div>
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
                                 <label className="form-label fw-semibold ms-2" htmlFor="password">Açar sözi</label>
-                                <input id="password" name="password" type="password" className="form-control rounded-4" placeholder="************" autoComplete="off" />
+                                <input value={password} onChange={(e) => setPassword(e.target.value)} id="password" name="password" type="password" className="form-control rounded-4" placeholder="************" autoComplete="off" />
                             </div>
                             <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
                                 <label className="form-label fw-semibold ms-2" htmlFor="password1">Açar sözini gaýtala</label>
-                                <input id="password1" name="password1" type="password" className="form-control rounded-4" placeholder="************" autoComplete="off" />
+                                <input value={cPassword} onChange={(e) => setCPassword(e.target.value)} id="password1" name="password1" type="password" className="form-control rounded-4" placeholder="************" autoComplete="off" />
                             </div>
                             <div className="col-xl-12 mb-4">
                                 Meniň öň hem agza boldym! <Link to='/giris-etmek' className="text-decoration-none">Giriş et</Link>

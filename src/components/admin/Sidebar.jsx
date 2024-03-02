@@ -1,4 +1,4 @@
-import { faBook, faEnvelope, faHomeAlt, faUsers } from "@fortawesome/free-solid-svg-icons"
+import { faBook, faEnvelope, faHomeAlt, faUsers, faWindowClose } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link, NavLink } from "react-router-dom"
 
@@ -22,6 +22,12 @@ const Sidebar = () => {
                             <NavLink to="/admin/users" className="nav-link text-dark">
                                 <FontAwesomeIcon icon={faUsers} className="me-2 text-dark" />
                                 Ulanyjylar
+                            </NavLink>
+                        </li>
+                        <li className="nav-item mb-2">
+                            <NavLink to="/admin/categories" className="nav-link text-dark">
+                                <FontAwesomeIcon icon={faWindowClose} className="me-2 text-dark" />
+                                Kategoriýalar
                             </NavLink>
                         </li>
                         <li className="nav-item mb-2">

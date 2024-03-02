@@ -1,48 +1,93 @@
 import { BrowserRouter as Router, Outlet, Route, Routes } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import './App.css'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { AuthContext } from './context/AuthContext';
 
 //COMPONENTS
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ProfileNavbar, ProfileSidebar, ScrollToTop } from './components';
 //PAGES
 import { Home, Login, Profile, Register } from './pages/interface';
 //ADMIN
-import { Admin, AdminContact, AdminLogin, AdminRace, AdminUsers } from './pages/admin';
+import { Admin, AdminCategories, AdminCategoryCreate, AdminCategoryEdit, AdminContact, AdminLogin, AdminRace, AdminUsers } from './pages/admin';
 
 function App() {
 
+    const [authState, setAuthState] = useState({
+        username: "",
+        phone_num: "",
+        id: 0,
+        status: false,
+        role: "User",
+    });
+
+    useEffect(() => {
+        axios.get(`${import.meta.env.VITE_API_FETCH}/auth/current_user`, {
+            headers: {
+                accessToken: localStorage.getItem("accessToken"),
+            },
+        })
+            .then((res) => {
+                if (res.data.error) {
+                    setAuthState({ ...authState, status: false, role: "User" });
+                } else {
+                    setAuthState({
+                        username: res.data.username,
+                        phone_num: res.data.phone_num,
+                        id: res.data.id,
+                        status: true,
+                        role: res.data.role,
+                    });
+                }
+            });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <>
-            <Router>
-                <ScrollToTop />
-                <Toaster />
-                <Routes>
-                    <Route path="/" element={<HomeLayout />}>
-                        <Route path="/" element={<Home />} />
-                    </Route>
+            <AuthContext.Provider value={{ authState, setAuthState }}>
+                <Router>
+                    <ScrollToTop />
+                    <Toaster />
+                    <Routes>
+                        <Route path="/" element={<HomeLayout />}>
+                            <Route path="/" element={<Home />} />
+                        </Route>
 
-                    <Route path="/profile" element={<ProfileLayout />}>
-                        <Route path="" element={<Profile />} />
-                    </Route>
+                        <Route path="/profile" element={<ProfileLayout />}>
+                            <Route path="" element={<Profile />} />
+                        </Route>
 
-                    <Route path="/giris-etmek" element={<Login />} />
-                    <Route path="/agza-bolmak" element={<Register />} />
+                        {authState.role === "Admin" && (
+                            <Route path="/admin" element={<AdminLayout />}>
+                                <Route path="" element={<Admin />} />
+                                <Route path="home" element={<Admin />} />
 
-                    <Route path="/admin" element={<AdminLayout />}>
-                        <Route path="" element={<Admin />} />
-                        <Route path="home" element={<Admin />} />
+                                <Route path="categories" element={<AdminCategories />} />
+                                <Route path="category-create" element={<AdminCategoryCreate />} />
+                                <Route path="category-edit" element={<AdminCategoryEdit />} />
 
-                        <Route path="users" element={<AdminUsers />} />
+                                <Route path="users" element={<AdminUsers />} />
 
-                        <Route path="race" element={<AdminRace />} />
+                                <Route path="race" element={<AdminRace />} />
 
-                        <Route path="contact" element={<AdminContact />} />
-                    </Route>
+                                <Route path="contact" element={<AdminContact />} />
+                            </Route>
+                        )}
 
-                    <Route path="/admin/login" element={<AdminLogin />} />
+                        {!authState.status && (
+                            <>
+                                <Route path="/giris-etmek" element={<Login />} />
+                                <Route path="/agza-bolmak" element={<Register />} />
 
-                </Routes>
-            </Router>
+                                <Route path="/admin/login" element={<AdminLogin />} />
+                            </>
+                        )}
+
+                    </Routes>
+                </Router>
+            </AuthContext.Provider>
         </>
     )
 }
