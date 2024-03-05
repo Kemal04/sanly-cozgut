@@ -10,7 +10,7 @@ import { AdminNavbar, AdminSidebar, Footer, Navbar, ProfileNavbar, ProfileSideba
 //PAGES
 import { Home, Login, Profile, Register } from './pages/interface';
 //ADMIN
-import { Admin, AdminCategories, AdminCategoryCreate, AdminCategoryEdit, AdminContact, AdminLogin, AdminRace, AdminUsers } from './pages/admin';
+import { Admin, AdminCategories, AdminContact, AdminLogin, AdminRace, AdminUsers } from './pages/admin';
 
 function App() {
 
@@ -65,8 +65,6 @@ function App() {
                                 <Route path="home" element={<Admin />} />
 
                                 <Route path="categories" element={<AdminCategories />} />
-                                <Route path="category-create" element={<AdminCategoryCreate />} />
-                                <Route path="category-edit" element={<AdminCategoryEdit />} />
 
                                 <Route path="users" element={<AdminUsers />} />
 

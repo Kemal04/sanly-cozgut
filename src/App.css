@@ -2,6 +2,10 @@
     font-size: 18px !important;
 }
 
+.fs-14{
+    font-size: 14px!important;
+}
+
 .bg-home {
     background: url(./assets/bg/home.jpg);
     background-position: center;

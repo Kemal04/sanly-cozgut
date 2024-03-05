@@ -7,5 +7,3 @@ export { default as AdminRace } from "./race/Race"
 export { default as AdminContact } from "./contact/Contact"
 
 export { default as AdminCategories } from "./category/Categories"
-export { default as AdminCategoryCreate } from "./category/CategoryCreate"
-export { default as AdminCategoryEdit } from "./category/CategoryEdit"

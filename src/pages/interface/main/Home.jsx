@@ -20,8 +20,24 @@ import svg2 from "../../../assets/icons/statiks.svg";
 import checkIcon from "../../../assets/icons/check.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faEnvelope, faMapMarkedAlt, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
+
+    //CATEGORY GET
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await axios.get(`${import.meta.env.VITE_API_FETCH}/category`)
+                .then((res) => {
+                    setCategories(res.data.category)
+                })
+        }
+        fetchData()
+    }, [])
+
     return (
         <>
             <div className="container my-5 py-5" id="news">
@@ -67,34 +83,14 @@ const Home = () => {
                             <br />
                             Seljeriş toparynyň düzümine umumy ýolbaşçylygy «Türkmenaragatnaşyk» agentligi tarapyndan amala aşyrylýar we ylalaşylyp düzülýär.
                         </p>
-                        <div className="d-flex align-items-center mb-3 mt-5">
-                            <img src={checkIcon} alt="" className="img-fluid me-2" />
-                            <div className="h5">Saglygy goraýyş</div>
-                        </div>
-                        <div className="d-flex align-items-center mb-3">
-                            <img src={checkIcon} alt="" className="img-fluid me-2" />
-                            <div className="h5">Ylym-bilim</div>
-                        </div>
-                        <div className="d-flex align-items-center mb-3">
-                            <img src={checkIcon} alt="" className="img-fluid me-2" />
-                            <div className="h5">Ulag-logistika</div>
-                        </div>
-                        <div className="d-flex align-items-center mb-3">
-                            <img src={checkIcon} alt="" className="img-fluid me-2" />
-                            <div className="h5">Elektron senagat</div>
-                        </div>
-                        <div className="d-flex align-items-center mb-3">
-                            <img src={checkIcon} alt="" className="img-fluid me-2" />
-                            <div className="h5">Oba-hojalyk</div>
-                        </div>
-                        <div className="d-flex align-items-center mb-3">
-                            <img src={checkIcon} alt="" className="img-fluid me-2" />
-                            <div className="h5">Hyzmatlar ulgamy</div>
-                        </div>
-                        <div className="d-flex align-items-center mb-3">
-                            <img src={checkIcon} alt="" className="img-fluid me-2" />
-                            <div className="h5">Robototehnika</div>
-                        </div>
+                        {
+                            categories.map((data, index) => (
+                                <div key={index} className="d-flex align-items-center mb-3 mt-5">
+                                    <img src={checkIcon} alt="" className="img-fluid me-2" />
+                                    <div className="h5">{data.name_tm}</div>
+                                </div>
+                            ))
+                        }
                     </div>
                     <div className="col-xl-6">
                         <div className="bg-light rounded-5 d-flex flex-column align-items-center" style={{ padding: "50px 70px" }}>
