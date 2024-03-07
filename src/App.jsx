@@ -55,22 +55,24 @@ function App() {
                             <Route path="/" element={<Home />} />
                         </Route>
 
-                        <Route path="/profile" element={<ProfileLayout />}>
-                            <Route path="" element={<Profile />} />
-                        </Route>
+                        {authState.role === "User" && (
+                            <Route path="/profile" element={<ProfileLayout />}>
+                                <Route path="" element={<Profile />} />
+                            </Route>
+                        )}
 
                         {authState.role === "Admin" && (
                             <Route path="/admin" element={<AdminLayout />}>
                                 <Route path="" element={<Admin />} />
-                                <Route path="home" element={<Admin />} />
+                                <Route path="bas-sahypa" element={<Admin />} />
 
-                                <Route path="categories" element={<AdminCategories />} />
+                                <Route path="kategoriyalar" element={<AdminCategories />} />
 
-                                <Route path="users" element={<AdminUsers />} />
+                                <Route path="ulanyjylar" element={<AdminUsers />} />
 
-                                <Route path="race" element={<AdminRace />} />
+                                <Route path="yarysa-gatnasycylar" element={<AdminRace />} />
 
-                                <Route path="contact" element={<AdminContact />} />
+                                <Route path="habarlasmak" element={<AdminContact />} />
                             </Route>
                         )}
 

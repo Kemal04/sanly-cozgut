@@ -9,8 +9,6 @@ const Navbar = () => {
     //AUTH SECTION API
     const { authState, setAuthState } = useContext(AuthContext)
 
-    console.log(authState);
-
     const logout = () => {
         localStorage.removeItem("accessToken");
         setAuthState({ phone_num: "", id: 0, status: false, role: "User" })
@@ -52,16 +50,24 @@ const Navbar = () => {
                                         </>
                                         :
                                         <>
-                                            <div className="dropdown ms-5">
-                                                <button className="btn btn-success dropdown-toggle rounded-5 py-2 px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Profile
-                                                </button>
-                                                <ul className="dropdown-menu">
-                                                    <li><Link to='/profile' className="dropdown-item">Profile</Link></li>
-                                                    <li><Link to='/' className="dropdown-item">Hasaba durmak</Link></li>
-                                                    <li><button onClick={logout} className="dropdown-item">Çykmak</button></li>
-                                                </ul>
-                                            </div>
+                                            {
+                                                authState.role === "Admin"
+                                                    ?
+                                                    <Link to='/admin/bas-sahypa' className="btn btn-success rounded-5 py-2 px-4">
+                                                        Admin
+                                                    </Link>
+                                                    :
+                                                    <div className="dropdown ms-5">
+                                                        <button className="btn btn-success dropdown-toggle rounded-5 py-2 px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            Profile
+                                                        </button>
+                                                        <ul className="dropdown-menu">
+                                                            <li><Link to='/profile' className="dropdown-item">Profile</Link></li>
+                                                            <li><Link to='/' className="dropdown-item">Hasaba durmak</Link></li>
+                                                            <li><button onClick={logout} className="dropdown-item">Çykmak</button></li>
+                                                        </ul>
+                                                    </div>
+                                            }
                                         </>
                                 }
                             </form>

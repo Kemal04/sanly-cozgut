@@ -13,31 +13,31 @@ const Sidebar = () => {
                     <hr />
                     <ul className="nav nav-pills flex-column mb-auto">
                         <li className="nav-item mb-2">
-                            <NavLink to="/admin/home" className="nav-link text-dark">
+                            <NavLink to="/admin/bas-sahypa" className="nav-link text-dark">
                                 <FontAwesomeIcon icon={faHomeAlt} className="me-2 text-dark" />
                                 Baş sahypa
                             </NavLink>
                         </li>
                         <li className="nav-item mb-2">
-                            <NavLink to="/admin/users" className="nav-link text-dark">
+                            <NavLink to="/admin/ulanyjylar" className="nav-link text-dark">
                                 <FontAwesomeIcon icon={faUsers} className="me-2 text-dark" />
                                 Ulanyjylar
                             </NavLink>
                         </li>
                         <li className="nav-item mb-2">
-                            <NavLink to="/admin/categories" className="nav-link text-dark">
+                            <NavLink to="/admin/kategoriyalar" className="nav-link text-dark">
                                 <FontAwesomeIcon icon={faWindowClose} className="me-2 text-dark" />
                                 Kategoriýalar
                             </NavLink>
                         </li>
                         <li className="nav-item mb-2">
-                            <NavLink to="/admin/race" className="nav-link text-dark">
+                            <NavLink to="/admin/yarysa-gatnasycylar" className="nav-link text-dark">
                                 <FontAwesomeIcon icon={faBook} className="me-2 text-dark" />
                                 Ýaryşa gatnaşyjylar
                             </NavLink>
                         </li>
                         <li className="nav-item mb-2">
-                            <NavLink to="/admin/contact" className="nav-link text-dark">
+                            <NavLink to="/admin/habarlasmak" className="nav-link text-dark">
                                 <FontAwesomeIcon icon={faEnvelope} className="me-2 text-dark" />
                                 Habarlaşmak
                             </NavLink>

@@ -158,7 +158,7 @@ const Categories = () => {
                                                 inputShow === data.id ?
                                                     <div className="input-group w-50">
                                                         <input value={text} onChange={(e) => setText(e.target.value)} type="text" className="form-control rounded-start-5 fs-14 py-1" aria-describedby="basic-addon1" />
-                                                        <button onClick={() => handleEdit(data.id)} className="input-group-text bg-success text-white rounded-end-5 py-1" id="basic-addon1">Uytget</button>
+                                                        <button onClick={() => handleEdit(data.id)} className="input-group-text bg-primary text-white rounded-end-5 py-1" id="basic-addon1">Uytget</button>
                                                     </div>
                                                     :
                                                     data.name_tm

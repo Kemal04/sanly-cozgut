@@ -22,6 +22,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faEnvelope, faMapMarkedAlt, faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Home = () => {
 
@@ -37,6 +38,55 @@ const Home = () => {
         }
         fetchData()
     }, [])
+
+    //CONTACT API
+    const [contact, setContact] = useState({
+        name: "",
+        email: "",
+        subject: "",
+        comment: "",
+    })
+
+    const handleChange = (e) => {
+        setContact((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    }
+
+    const handleClick = async (e) => {
+        e.preventDefault()
+
+        if (!contact.name) {
+            toast.error("Adyňyzy ýazyň")
+        }
+        else if (!contact.email) {
+            toast.error("E-mail adresiňizi ýazyň")
+        }
+        else if (!contact.subject) {
+            toast.error("Temaňyzy ýazyň")
+        }
+        else if (!contact.comment) {
+            toast.error("Teswiriňizi ýazyň")
+        }
+        else if (contact.comment.length < 25) {
+            toast.error("Teswiriňizi 25 harpdan ybarat bolmaly")
+        }
+        else {
+            await axios.post(`${import.meta.env.VITE_API_FETCH}/contact/create`, contact, {
+                headers: {
+                    accessToken: localStorage.getItem("accessToken"),
+                },
+            }).then((res) => {
+                toast.success(res.data.success)
+                setContact({
+                    name: "",
+                    email: "",
+                    subject: "",
+                    comment: "",
+                })
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+    }
 
     return (
         <>
@@ -84,7 +134,7 @@ const Home = () => {
                             Seljeriş toparynyň düzümine umumy ýolbaşçylygy «Türkmenaragatnaşyk» agentligi tarapyndan amala aşyrylýar we ylalaşylyp düzülýär.
                         </p>
                         {
-                            categories.map((data, index) => (
+                            categories?.map((data, index) => (
                                 <div key={index} className="d-flex align-items-center mb-3 mt-5">
                                     <img src={checkIcon} alt="" className="img-fluid me-2" />
                                     <div className="h5">{data.name_tm}</div>
@@ -96,13 +146,13 @@ const Home = () => {
                         <div className="bg-light rounded-5 d-flex flex-column align-items-center" style={{ padding: "50px 70px" }}>
                             <div className="display-4">Bäsleşikde <b className="text-primary fw-bold">gadagan</b> edilýän hereketler</div>
                             <img src={img8} alt="" className="img-fluid mt-5" style={{ width: "400px" }} />
-                            <p className="fs-18 text-secondary">
+                            <div className="fs-18 text-secondary">
                                 <ul>
                                     <li>Jemgyýetçilik çäklerini we özüňi alyp barmak tertiplerini bozmak;</li>
                                     <li> Wirusly ýa-da howply resminamalary ýüklemek we almak;</li>
                                     <li> Iş we onuň mazmuny bäsleşige gatnaşyjylaryň we ony gurnaýjylaryň göwnine degip biljek taslamanyň görnüşini hödürlemek.</li>
                                 </ul>
-                            </p>
+                            </div>
                             <Link to='/' className="btn btn-primary btn-lg mt-3 rounded-5 py-3 px-5">Giňişleýin gör</Link>
                         </div>
                     </div>
@@ -246,18 +296,18 @@ const Home = () => {
                 <div className="bg-light rounded-5 p-5 mt-5">
                     <div className="row justify-content-between align-items-center">
                         <div className="col-xl-6">
-                            <form className="row justify-content-center">
+                            <form className="row justify-content-center" onSubmit={handleClick}>
                                 <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                    <input name="name" type="text" className="form-control rounded-4 border-0" placeholder="Adynyz" autoComplete="off" />
+                                    <input onChange={handleChange} value={contact?.name} name="name" type="text" className="form-control rounded-4 border-0" placeholder="Adynyz" autoComplete="off" />
                                 </div>
                                 <div className="col-xl-6 col-lg-6 col-md-6 col-12 mb-4">
-                                    <input name="email" type="email" className="form-control rounded-4 border-0" placeholder="E-mail adresiniz" autoComplete="off" />
+                                    <input onChange={handleChange} value={contact?.email} name="email" type="email" className="form-control rounded-4 border-0" placeholder="E-mail adresiniz" autoComplete="off" />
                                 </div>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-12 mb-4">
-                                    <input name="subject" type="text" className="form-control rounded-4 border-0" placeholder="Temasy" autoComplete="off" />
+                                    <input onChange={handleChange} value={contact?.subject} name="subject" type="text" className="form-control rounded-4 border-0" placeholder="Temasy" autoComplete="off" />
                                 </div>
                                 <div className="col-xl-12 col-lg-12 col-md-12 col-12 mb-4">
-                                    <textarea name="comment" className="form-control rounded-4 border-0" rows="6" placeholder="Mazmuny"></textarea>
+                                    <textarea onChange={handleChange} value={contact?.comment} name="comment" className="form-control rounded-4 border-0" rows="6" placeholder="Mazmuny"></textarea>
                                 </div>
                                 <div className="col-xl-5 mb-4 text-center">
                                     <button className="btn btn-primary px-5 rounded-5" type="submit">Ugrat</button>

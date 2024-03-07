@@ -1,7 +1,26 @@
 import { Link } from "react-router-dom";
 import userImg from "../../../assets/icons/user.jpg";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../../context/AuthContext";
+import axios from "axios";
 
 const Profile = () => {
+
+    // const { authState } = useContext(AuthContext);
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         await axios.get(`${import.meta.env.VITE_API_FETCH}/user`, {
+    //             headers: {
+    //                 accessToken: localStorage.getItem("accessToken"),
+    //             },
+    //         }).then((res) => {
+    //             console.log(res);
+    //         })
+    //     }
+    //     fetchData()
+    // }, [])
+
     return (
         <>
             <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
