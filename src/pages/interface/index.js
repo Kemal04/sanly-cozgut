@@ -6,3 +6,4 @@ export { default as Register } from "./auth/Register"
 
 //profile
 export { default as Profile } from "./profile/Profile"
+export { default as ProfileDocument } from "./profile/Document"

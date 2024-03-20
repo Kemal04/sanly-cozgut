@@ -8,9 +8,9 @@ import { AuthContext } from './context/AuthContext';
 //COMPONENTS
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ProfileNavbar, ProfileSidebar, ScrollToTop } from './components';
 //PAGES
-import { Home, Login, Profile, Register } from './pages/interface';
+import { Home, Login, Profile, ProfileDocument, Register } from './pages/interface';
 //ADMIN
-import { Admin, AdminCategories, AdminContact, AdminLogin, AdminRace, AdminUsers } from './pages/admin';
+import { Admin, AdminCategories, AdminContact, AdminDocument, AdminLogin, AdminUsers } from './pages/admin';
 
 function App() {
 
@@ -55,9 +55,10 @@ function App() {
                             <Route path="/" element={<Home />} />
                         </Route>
 
-                        {authState.role === "User" && (
-                            <Route path="/profile" element={<ProfileLayout />}>
-                                <Route path="" element={<Profile />} />
+                        {authState.status && (
+                            <Route path="/" element={<ProfileLayout />}>
+                                <Route path="/profile" element={<Profile />} />
+                                <Route path="/profile-document" element={<ProfileDocument />} />
                             </Route>
                         )}
 
@@ -70,7 +71,7 @@ function App() {
 
                                 <Route path="ulanyjylar" element={<AdminUsers />} />
 
-                                <Route path="yarysa-gatnasycylar" element={<AdminRace />} />
+                                <Route path="yarysa-gatnasycylar" element={<AdminDocument />} />
 
                                 <Route path="habarlasmak" element={<AdminContact />} />
                             </Route>

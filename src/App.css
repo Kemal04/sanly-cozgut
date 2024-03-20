@@ -49,6 +49,10 @@
     color: white !important;
 }
 
-.placeholder1::placeholder{
+.placeholder1::placeholder {
     color: #ffffff50 !important;
+}
+
+.active {
+    color: #0D6EFD!important;
 }
